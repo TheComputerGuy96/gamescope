@@ -10,6 +10,7 @@ dep_xmu = dependency('xmu')
 
 drm_dep = dependency('libdrm', version: '>= 2.4.113')
 
+wayland_client = dependency('wayland-client', version: '>=1.21')
 wayland_server = dependency('wayland-server', version: '>=1.21')
 wayland_protos = dependency('wayland-protocols', version: '>=1.17')
 xkbcommon = dependency('xkbcommon')
@@ -130,7 +131,7 @@ endif
     include_directories : [reshade_include],
     dependencies: [
       dep_x11, dep_xdamage, dep_xcomposite, dep_xrender, dep_xext, dep_xfixes,
-      dep_xxf86vm, dep_xres, glm_dep, drm_dep, wayland_server,
+      dep_xxf86vm, dep_xres, glm_dep, drm_dep, wayland_client, wayland_server,
       xkbcommon, thread_dep, sdl_dep, wlroots_dep,
       vulkan_dep, liftoff_dep, dep_xtst, dep_xmu, cap_dep, pipewire_dep, librt_dep,
       stb_dep, displayinfo_dep, openvr_dep,
